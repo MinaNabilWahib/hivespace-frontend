@@ -3,6 +3,9 @@ import Loader from "react-loaders";
 import mainLogo from "../../assets/images/mainLogo.png";
 import AnimattedLetters from "../AnimatedLetters/AnimatedLetters";
 import "./Home.scss";
+import { Canvas } from "@react-three/fiber";
+import Box from "../Box/Box";
+import { OrbitControls } from "@react-three/drei";
 const Home = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const nameArray = ["i", "v", "e", " ", "S", "p", "a", "c", "e"];
@@ -13,7 +16,7 @@ const Home = () => {
     }, 4000);
   }, []);
   return (
-    <>
+    <div className="main">
       <div className="container home-page">
         <h1 className="text-zone">
           <span className={letterClass}>H</span>
@@ -39,8 +42,16 @@ const Home = () => {
         </h1>
         <h2>Everything you can imagine is real.</h2>
       </div>
+      <div className="second">
+        <Canvas className="canvas">
+          <OrbitControls />
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[-2, 5, 2]} />
+          <Box />
+        </Canvas>
+      </div>
       <Loader type="ball-clip-rotate-multiple" />
-    </>
+    </div>
   );
 };
 export default Home;
