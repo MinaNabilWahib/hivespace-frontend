@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    /* colors */
+    --primary-color: rgb(47, 47, 162);
+    --primary-color_dark: rgb(36, 37, 130);
+    --primary-color_light: rgb(101, 157, 189);
+    --secondary-color: rgb(246, 76, 114);
+    --secondary-color_dark: rgb(85, 61, 103);
+    --secondary-color_light: rgb(153, 115, 142);
+    --white-color: rgb(255, 255, 255);
+    --gray-color: rgb(77, 77, 78);
+    --dark-color: rgb(31, 41, 55);
+    --dark-color2: rgb(42, 48, 60);
+    /*transition*/
+    --transition-out: all 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    --transition-in: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-hover: 0.3s all;
+    /*shadow*/
+    --shadow-black: 0 16px 26px -10px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
