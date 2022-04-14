@@ -2,18 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* Light Theme */
+body[data-theme='light'] {
     /* colors */
-    --primary-color: rgb(47, 47, 162);
-    --primary-color_dark: rgb(36, 37, 130);
-    --primary-color_light: rgb(101, 157, 189);
-    --secondary-color: rgb(246, 76, 114);
-    --secondary-color_dark: rgb(85, 61, 103);
-    --secondary-color_light: rgb(153, 115, 142);
-    --white-color: rgb(255, 255, 255);
-    --gray-color: rgb(77, 77, 78);
-    --dark-color: rgb(31, 41, 55);
-    --dark-color2: rgb(42, 48, 60);
+    --primary-color: 47, 47, 162;
+    --primary-color_dark: 36, 37, 130;
+    --primary-color_light: 101, 157, 189;
+    --secondary-color: 246, 76, 114;
+    --secondary-color_dark: 85, 61, 103;
+    --secondary-color_light: 153, 115, 142;
+    --color-white: 255, 255, 255;
+    --color-gray: 77, 77, 78;
+    --dark-color: 31, 41, 55;
+    --colors-text: 31, 41, 55;
+    --color-background: 240, 245, 250;
+    --colors-heading: rgba(0, 0, 0, 0.6);
+    /*transition*/
+    --transition-out: all 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    --transition-in: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-hover: 0.3s all;
+    /*shadow*/
+    --shadow-black: 0 16px 26px -10px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Theme */
+body[data-theme='dark'] {
+    /* colors */
+    --primary-color: 246, 76, 114;
+    --primary-color_dark: 85, 61, 103;
+    --primary-color_light: 153, 115, 142;
+    --secondary-color: 47, 47, 162;
+    --secondary-color_dark: 36, 37, 130;
+    --secondary-color_light: 101, 157, 189;
+    --color-white: 255, 255, 255;
+    --color-gray: 161, 161, 161;
+    --dark-color: 31, 41, 55;
+    --colors-text: 240, 245, 250;
+    --color-background: 31, 41, 55;
+    --colors-heading: rgba(0, 0, 0, 0.2);
     /*transition*/
     --transition-out: all 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
     --transition-in: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
