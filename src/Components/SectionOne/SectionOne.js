@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import mainLogo from "../../Assets/images/mainLogo.png";
 import AnimattedLetters from "../AnimattedLetters/AnimattedLetters.js";
 import "./SectionOne.scss";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Box from "../box/box.js";
+// import Box from "../box/box.js";
+import Welcome from "../Welcome/Welcome.js";
 const SectionOne = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const nameArray = ["i", "v", "e", " ", "S", "p", "a", "c", "e"];
@@ -43,11 +44,19 @@ const SectionOne = () => {
           <h2 className=" text-7xl">Everything you can imagine is real.</h2>
         </div>
         <div className="right opacity-0 md:opacity-100">
-          <Canvas className="canvas">
+          {/* <Canvas className="canvas">
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={1} />
             <directionalLight position={[-2, 5, 2]} />
             <Box />
+          </Canvas> */}
+          <Canvas>
+            <OrbitControls enableZoom={false} />
+            <directionalLight intensity={0.5} />
+            <ambientLight intensity={0.5} />
+            <Suspense fallback={null}>
+              <Welcome />
+            </Suspense>
           </Canvas>
         </div>
       </div>
