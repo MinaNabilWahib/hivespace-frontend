@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setOpenWorkspace } from "../../Store/actions/workspace";
 import WorkspaceListIcon from "./workspaceListIcon";
 import Addworkspace from "./addWorkspace";
