@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.workspace-icon {
+  position: relative; /* to position the tooltip relative to the anchor tag */
+}
+.workspace-icon:hover {
+  /* for achieving the arrow shape at the bottom of the tooltip */
+  text-decoration: none;
+}
+.workspace-icon::after,
+.workspace-icon::before {
+  position: absolute;
+  display: none; /* initially hide it from view */
+}
+.workspace-icon::before {
+  content: "";
+  top: 16px;
+  left: 43px;
+  height: 0px;
+  width: 0px;
+  /* the arrow */
+  border-left: 5px solid transparent;
+  border-top: 5px solid black;
+  border-right: 5px solid transparent;
+  transform: rotate(90deg);
+}
+.workspace-icon::after {
+  content: attr(
+    data-tooltip
+  ); /* set content of pseudo element as the value of data-tooltip attribute */
+  top: 5px;
+  left: 50px;
+  background: black;
+  border-radius: 4px; /* just a bit of extra styling */
+  padding: 2px 6px;
+  white-space: nowrap;
+  color: white;
+  z-index: 10;
+}
+.workspace-icon:hover::after,
+.workspace-icon:hover::before {
+  display: block; /* display both tooltip and arrow mark when a is hovered on */
+}
