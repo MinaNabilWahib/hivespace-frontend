@@ -10,11 +10,12 @@ const WorkspaceSidebar = () => {
 		)
 	);
 	const openChannel = useSelector((state) => state.workspace.openChannel);
+	const openWorkspace = useSelector((state) => state.workspace.openWorkspace);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(setOpenChannel(workspace.channels[0]._id));
-	}, []);
+	}, [openWorkspace]);
 
 	return (
 		<div className="flex flex-col flex-shrink-0 w-64 border-r border-gray-300 bg-gray-100">

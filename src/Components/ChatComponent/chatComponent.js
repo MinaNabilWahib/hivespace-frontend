@@ -1,6 +1,46 @@
+import { useSelector } from "react-redux";
+import DateRule from "./dateRule";
 import Message from "./message";
+import io from "socket.io-client";
+import { useEffect, useState } from "react";
 
-const Chat = (props) => {
+const Chat = () => {
+	const workspace = useSelector((state) =>
+		state.workspace.workspaces.find(
+			(workspace) => workspace._id === state.workspace.openWorkspace
+		)
+	);
+	const openChannel = useSelector((state) => state.workspace.openChannel);
+	const openWorkspace = useSelector((state) => state.workspace.openWorkspace);
+	const channel = workspace.channels.find(
+		(channel) => channel._id === openChannel
+	);
+	const [socket, setSocket] = useState(null);
+	const user = useSelector((state) => state.user.user);
+
+	console.log(user);
+
+	useEffect(() => {
+		const newSocket = io(`https://localhost:8000`);
+		setSocket(newSocket);
+
+		// socket.emit("joinRoom", {
+		// 	userId: "",
+		// 	roomId: "625454301ca43cc8cf5ca8bc",
+		// });
+
+		// console.log(socket);
+
+		return () => newSocket.close();
+	}, [setSocket, openChannel, openWorkspace]);
+
+	useEffect(() => {
+		// socket.emit("joinRoom", {
+		// 	userId: "",
+		// 	roomId: "625454301ca43cc8cf5ca8bc",
+		// });
+	}, []);
+
 	return (
 		<div
 			style={{ textAlign: "left", height: "100vh" }}
@@ -8,10 +48,8 @@ const Chat = (props) => {
 		>
 			<div className="flex items-center flex-shrink-0 h-16 bg-white border-b border-gray-300 px-4">
 				<div>
-					<h1 className="text-sm font-bold leading-none">#council-of-elrond</h1>
-					<span className="text-xs leading-none">
-						Let's sort this ring thing out hey!?!
-					</span>
+					<h1 className="text-sm font-bold leading-none">#{channel.title}</h1>
+					<span className="text-xs leading-none">{channel.description}</span>
 				</div>
 			</div>
 			<div
@@ -19,12 +57,7 @@ const Chat = (props) => {
 				className="flex flex-col flex-grow overflow-auto justify-end"
 			>
 				<Message />
-				<div className="flex flex-col items-center mt-2">
-					<hr className="w-full" />
-					<span className="flex items-center justify-center -mt-3 bg-white h-6 px-3 rounded-full border text-xs font-semibold mx-auto">
-						Today
-					</span>
-				</div>
+				<DateRule date="Today" />
 				<Message />
 			</div>
 			<div className="h-12 bg-white px-4 pb-4">
@@ -32,7 +65,7 @@ const Chat = (props) => {
 					<input
 						className="flex-grow text-sm px-3 ml-1 p-1"
 						style={{ resize: "none" }}
-						placeholder="Message council-of-elrond"
+						placeholder={`Message ${channel.title}`}
 					></input>
 					<button className="flex-shrink flex items-center justify-center h-6 w-6 rounded hover:bg-gray-200">
 						<svg

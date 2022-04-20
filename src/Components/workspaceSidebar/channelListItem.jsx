@@ -21,7 +21,11 @@ const ChannelListItem = ({ name, isOpen, onClick }) => {
 					clipRule="evenodd"
 				/>
 			</svg>
-			<span className="ml-2 leading-none"> {name} </span>
+			<span
+				className={isOpen ? "ml-2 leading-none font-bold" : "ml-2 leading-none"}
+			>
+				{name}
+			</span>
 		</a>
 	);
 };
