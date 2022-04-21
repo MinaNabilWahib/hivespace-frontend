@@ -1,4 +1,4 @@
-import { SET_OPEN_WORKSPACE, SET_OPEN_CHANNEL, SET_SOCKET } from "./types";
+import { SET_OPEN_WORKSPACE, SET_OPEN_CHANNEL } from "./types";
 
 export const setOpenWorkspace = (payload) => {
 	return {
@@ -10,13 +10,6 @@ export const setOpenWorkspace = (payload) => {
 export const setOpenChannel = (payload) => {
 	return {
 		type: SET_OPEN_CHANNEL,
-		payload,
-	};
-};
-
-export const setSocket = (payload) => {
-	return {
-		type: SET_SOCKET,
 		payload,
 	};
 };
