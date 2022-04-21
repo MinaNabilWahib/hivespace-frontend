@@ -3,6 +3,6 @@ import { userReducer } from "./user";
 import { workspaceReducer } from "./workspace";
 
 export default combineReducers({
-	workspace: workspaceReducer,
-	user: userReducer,
+  workspace: workspaceReducer,
+  user: userReducer,
 });

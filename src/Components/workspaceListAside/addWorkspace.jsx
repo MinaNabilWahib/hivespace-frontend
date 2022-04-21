@@ -1,5 +1,6 @@
 import { useFormik, FieldArray, FormikProvider } from "formik";
 import React from "react";
+import { axiosInstance } from "./../../Network/axiosConfig";
 
 export default function Addworkspace() {
   const [showModal, setShowModal] = React.useState(false);
@@ -27,11 +28,11 @@ export default function Addworkspace() {
       title: "",
       description: "",
       members: [],
-      owner: "User._id",
+      owner: "625c9977f375e6100773167a",
     },
     validate,
     onSubmit: (values) => {
-      setShowModal(false);
+      axiosInstance.post(`/createWorkspace`, values);
       console.log(values);
     },
   });

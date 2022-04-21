@@ -1,6 +1,7 @@
 import { useFormik, FieldArray, FormikProvider } from "formik";
 import React from "react";
 import { useSelector } from "react-redux";
+import { axiosInstance } from "./../../Network/axiosConfig";
 
 export default function EditChannel() {
   const [showModal, setShowModal] = React.useState(false);
@@ -34,6 +35,7 @@ export default function EditChannel() {
     validate,
     onSubmit: (values) => {
       setShowModal(false);
+      axiosInstance.put(`/channel`, values);
       console.log(values);
     },
   });
