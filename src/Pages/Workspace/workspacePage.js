@@ -1,7 +1,11 @@
-import Chat from "../../Components/ChatComponent/chatComponent";
+import Chat from "./../../Components/ChatComponent/chatComponent";
 
 const Workspace = (props) => {
-	return <Chat />;
+  return (
+    <>
+      <Chat />;
+    </>
+  );
 };
 
 export default Workspace;
