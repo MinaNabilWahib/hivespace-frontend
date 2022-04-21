@@ -9,7 +9,7 @@ const SignButton = ({ click, disabled, title }) => {
                 disabled={disabled}
                 className="group h-12 px-1 sm:px-12  bg-main  rounded-full transition duration-300 hover:bg-main-x  w-full">
                 <div className=" w-full space-x-4 justify-center">
-                    <span className="inline-block text-center tracking-normal  font-bold tracking-wide text-main  transition duration-300  group-hover:text-main-x sm:text-base">
+                    <span className="inline-block text-center tracking-normal  font-bold  text-main  transition duration-300  group-hover:text-main-x sm:text-base">
                         {title}
                     </span>
                 </div>

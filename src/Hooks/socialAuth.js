@@ -31,6 +31,7 @@ const useSocial = () => {
                 // if (getError())
                 //     dispatch(errorHandling({ error: getError() }))
                 // dispatch(loaded())
+                dispatch(loaded({ token: getToken() }))
                 clearInterval(check)
             }
         }, 1000)

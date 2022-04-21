@@ -96,7 +96,7 @@ const LoginForm = () => {
             {error === 'Error: Your account not verified , please verify it' &&
                 <div className=''>
                     Verification Email Not Sent ?
-                    <Link className='text-primary-light font-semibold' to="/auth"> Resend It Again</Link>
+                    <Link className='text-primary-light font-semibold' to="/auth/verifyEmail"> Resend It Again</Link>
                 </div>}
         </div>
     )

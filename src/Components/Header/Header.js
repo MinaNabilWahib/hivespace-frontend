@@ -1,14 +1,28 @@
 import "./Header.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import cssVariables from './../../Services/cssVariables';
+import { useDispatch, useSelector } from "react-redux";
+import { logoutAction, checkAuth } from './../../Store/actions/user';
+import { getToken } from "../../Services/tokenHandling";
 const Header = () => {
   const [nav, setNav] = useState(false);
+  const loggedIn = useSelector((state) => state.authorization.loggedIn);
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
   const handleClick = () => {
     setNav(!nav);
   };
+  useLayoutEffect(() => {
+    dispatch(checkAuth(getToken()))
+  }, [dispatch])
   const colors = cssVariables.colors()
+  const logout = () => {
+    dispatch(logoutAction());
+    navigate('/')
+  }
+
   return (
     <div className="w-[100%] h-[80px] z-10 bg-secondary drop-shadow-lg">
       <div className="px-2 flex justify-between items-center w-full h-full bg-main-heading">
@@ -49,10 +63,17 @@ const Header = () => {
             </NavLink>
           </ul>
         </div>
-        <div className="hidden md:flex pr-4 text-white">
-          <Link to={'/auth'} className="mr-20 px-4 py-4">Register</Link>
-          <Link to={'/auth/login'} className="px-4 py-4">Login</Link>
-        </div>
+        {
+          !loggedIn ?
+            <div className="hidden md:flex pr-4 text-white">
+              <Link to={'/auth'} className="mr-20 px-4 py-4">Register</Link>
+              <Link to={'/auth/login'} className="px-4 py-4">Login</Link>
+            </div> :
+            <div className="hidden md:flex pr-4 text-white">
+              <Link to={'/'} className="mr-20 px-4 py-4">WorkSpace</Link>
+              <button onClick={logout} className="px-4 py-4">LogOut</button>
+            </div>
+        }
         <div className="md:hidden mr-4" onClick={handleClick}>
           {!nav ? <MenuIcon className="w-11" /> : <XIcon className="w-11" />}
         </div>

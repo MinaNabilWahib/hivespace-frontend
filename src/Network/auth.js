@@ -29,7 +29,7 @@ export const register_post = async (body) => {
         }, {
             redirect: '/auth/login'
         })
-        return await api.data;
+        return api;
     } catch (error) {
         return error.response.data;
     }
@@ -64,12 +64,23 @@ export const resetNewPasswords_post = async (body) => {
     }
 }
 
+export const VerifyEmail_post = async (body) => {
+    try {
+        const api = await axiosAuth.post('verifyEmail', {
+            email: body.Email,
+        })
+        return api;
+    } catch (error) {
+        return error.response.data;
+    }
+}
+
 export const userVerify_get = async ({ id, token }) => {
     try {
-        const api = await axiosAuth.get(`/user/verify/${id}/${token}`, {}, {
+        const api = await axiosAuth.get(`/user/verify/${id}/${token}`, {
             redirect: '/auth/login'
         });
-        return await api.data;
+        return api;
     } catch (error) {
         return error.response.data;
     }

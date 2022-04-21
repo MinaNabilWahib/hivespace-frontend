@@ -18,7 +18,7 @@ export const checkAuth = (token) => async (dispatch) => {
         })
         dispatch({
             type: AUTHENTICATED,
-            payload: api.data.user
+            payload: api.data?.user
         })
         return api.data.user;
     } catch (error) {
@@ -26,7 +26,7 @@ export const checkAuth = (token) => async (dispatch) => {
         dispatch({
             type: NOT_AUTHENTICATED,
         })
-        return error.response.data;
+        return error.response?.data;
     }
 }
 
@@ -62,5 +62,12 @@ export const loginAction = (body) => async (dispatch) => {
         return error.response.data;
     }
 
+}
+
+export const logoutAction = () => {
+    deleteToken();
+    return {
+        type: NOT_AUTHENTICATED
+    };
 }
 

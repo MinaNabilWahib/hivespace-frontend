@@ -31,6 +31,7 @@ import Footer from "./Components/Footer/Footer";
 import About from "./Pages/About/About";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import ResendVerifyEmail from './Components/Authentication/ResendVerifyEmail/ResendVerifyEmail';
 function App() {
 
   const dispatch = useDispatch();
@@ -53,9 +54,12 @@ function App() {
           <Route index element={<NotAuthenticated><SocialRegister /></NotAuthenticated>} />
           <Route path="register" element={<NotAuthenticated><RegisterForm /></NotAuthenticated>} />
           <Route path="password" element={<NotAuthenticated><ForgetPassword /></NotAuthenticated>} />
+          <Route path="verifyEmail" element={<NotAuthenticated><ResendVerifyEmail /></NotAuthenticated>} />
           <Route path="password-reset/:id/:token" element={<NotAuthenticated><ResetPassword /></NotAuthenticated>} />
+
         </Route>
-        <Route path="socialVerify/:token/" element={<AuthCallback />} />
+        <Route path="auth/socialVerify/:token/" element={<AuthCallback />} />
+
         <Route path="auth/failure" element={<NotAuthenticated><NotFound authFailure={true} /></NotAuthenticated>} />
 
         <Route element={<LandingPage />} >

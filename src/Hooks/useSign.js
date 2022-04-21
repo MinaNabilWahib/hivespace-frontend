@@ -26,7 +26,10 @@ const useSign = (axiosRequest, formik) => {
     const startHandleSign = useCallback(async (body) => {
         if (!load) {
             const response = await axiosRequest(body);
+            console.log(response?.data?.message);
+
             if (response?.data?.message) {
+                console.log('i"m here');
                 if (formik)
                     formik.handleReset()
                 if (response.config?.redirect)
