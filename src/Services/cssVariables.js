@@ -11,8 +11,8 @@ const cssVariables = {
         grayColor: `rgba(var(--color-gray),${alpha})`,
         darkColor: `rgba(var(--dark-color),${alpha})`,
         bgColor: `rgba(var(--color-background),${alpha})`,
-        txtColor: `rgba(var(--colors-text),${alpha})`,
-        headingColor: `var(--colors-heading)`,
+        txtColor: `rgba(var(--color-text),${alpha})`,
+        headingColor: `var(--color-heading)`,
     }),
     transitions: {
         transitionOut: 'all 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045)',
