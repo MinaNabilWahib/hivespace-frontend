@@ -1,4 +1,8 @@
-import { SET_OPEN_WORKSPACE, SET_OPEN_CHANNEL } from "../actions/types";
+import {
+	SET_OPEN_WORKSPACE,
+	SET_OPEN_CHANNEL,
+	SET_SOCKET,
+} from "../actions/types";
 const INITIAL_STATE = {
 	workspaces: [
 		{
@@ -9,7 +13,7 @@ const INITIAL_STATE = {
 			channels: [
 				{
 					_id: "625454301ca43cc8cf5ca8bc",
-					title: "Test Channel in first workspace",
+					title: "general",
 					description: "this is a first test channel",
 					owner: "6254313eb723b4f2d2bfc8d4",
 					messages: [
@@ -19,7 +23,7 @@ const INITIAL_STATE = {
 				},
 				{
 					_id: "625454541ca43cc8cf5ca8bd",
-					title: "Test Channel 2 in first workspace",
+					title: "Channel 2 in first workspace",
 					description: "this is a second test channel",
 					owner: "6254313eb723b4f2d2bfc8d4",
 				},
@@ -33,7 +37,7 @@ const INITIAL_STATE = {
 			channels: [
 				{
 					_id: "625454301ca43cc8cf5ca8bc",
-					title: "Test Channel in 2nd workspace",
+					title: "general",
 					description: "this is a test channel",
 					owner: "6254313eb723b4f2d2bfc8d4",
 					messages: [
@@ -43,7 +47,7 @@ const INITIAL_STATE = {
 				},
 				{
 					_id: "625454541ca43cc8cf5ca8bd",
-					title: "Test Channel 2 in 2nd workspace",
+					title: "Test Channel",
 					description: "this is a second test channel",
 					owner: "6254313eb723b4f2d2bfc8d4",
 				},
@@ -52,6 +56,7 @@ const INITIAL_STATE = {
 	],
 	openWorkspace: "62545b581ca43cc8cf5ca8be",
 	openChannel: "625454301ca43cc8cf5ca8bc",
+	socket: null,
 };
 
 export function workspaceReducer(state = INITIAL_STATE, action) {
@@ -65,6 +70,11 @@ export function workspaceReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				openChannel: action.payload,
+			};
+		case SET_SOCKET:
+			return {
+				...state,
+				socket: action.payload,
 			};
 		default:
 			return state;
