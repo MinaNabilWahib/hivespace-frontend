@@ -1,0 +1,24 @@
+@import "./reset";
+@import "./variables";
+@import "./base";
+@import "./typography";
+@import "animate.css";
+@import "~loaders.css/src/animations/ball-pulse-sync";
+@import "~loaders.css/src/animations/triangle-skew-spin";
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+
+  animation: fadeOut 1s 1s;
+  animation-fill-mode: forwards;
+}
