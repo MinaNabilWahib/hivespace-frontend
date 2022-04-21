@@ -9,5 +9,3 @@ export const GET_CHANNEL = "GET_CHANNEL";
 //
 export const SET_OPEN_WORKSPACE = "SET_OPEN_WORKSPACE";
 export const SET_OPEN_CHANNEL = "SET_OPEN_CHANNEL";
-
-export const SET_SOCKET = "SET_SOCKET";

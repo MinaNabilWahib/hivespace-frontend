@@ -1,8 +1,4 @@
-import {
-	SET_OPEN_WORKSPACE,
-	SET_OPEN_CHANNEL,
-	SET_SOCKET,
-} from "../actions/types";
+import { SET_OPEN_WORKSPACE, SET_OPEN_CHANNEL } from "../actions/types";
 const INITIAL_STATE = {
 	workspaces: [
 		{
@@ -56,7 +52,6 @@ const INITIAL_STATE = {
 	],
 	openWorkspace: "62545b581ca43cc8cf5ca8be",
 	openChannel: "625454301ca43cc8cf5ca8bc",
-	socket: null,
 };
 
 export function workspaceReducer(state = INITIAL_STATE, action) {
@@ -70,11 +65,6 @@ export function workspaceReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				openChannel: action.payload,
-			};
-		case SET_SOCKET:
-			return {
-				...state,
-				socket: action.payload,
 			};
 		default:
 			return state;
