@@ -8,7 +8,7 @@ const Theme = () => {
   }, [theme])
   return (
 
-    <label className="swap swap-rotate absolute top-7 right-7 z-10" title={`Change to ${nextTheme} mode`}>
+    <label className="swap swap-rotate  top-24 fixed right-7 z-10" title={`Change to ${nextTheme} mode`}>
 
       <input type="checkbox" onClick={() => setTheme(nextTheme)} />
 

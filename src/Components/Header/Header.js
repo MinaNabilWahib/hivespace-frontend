@@ -1,55 +1,57 @@
 import "./Header.scss";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useState } from "react";
+import cssVariables from './../../Services/cssVariables';
 const Header = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => {
     setNav(!nav);
   };
+  const colors = cssVariables.colors()
   return (
-    <div className="w-[100%] h-[80px] z-10 bg-primary drop-shadow-lg">
-      <div className="px-2 flex justify-between items-center w-full h-full">
+    <div className="w-[100%] h-[80px] z-10 bg-secondary drop-shadow-lg">
+      <div className="px-2 flex justify-between items-center w-full h-full bg-main-heading">
         <div className="flex items-center">
-          <h1 className="text-3xl text-orange-500 ml-3 mr-3 font-bold  sm:text-4xl">
+          <h1 className="text-3xl text-primary ml-3 mr-3 font-bold  sm:text-4xl">
             HIVE SPACE.
           </h1>
-          <ul className="hidden  md:flex   text-orange-500 ">
+          <ul className="hidden  md:flex   text-primary-light ">
             <NavLink
-              className="p-10"
+              className="p-10 font-bold"
               to="/home"
               exact="true"
-              style={(isActive) => ({
-                color: isActive ? "green" : "blue",
+              style={({ isActive }) => ({
+                color: isActive ? colors.grayColor : colors.whiteColor,
               })}
             >
               HOME
             </NavLink>
             <NavLink
-              className="p-10"
+              className="p-10 font-bold"
               to="/about"
               exact="true"
-              style={(isActive) => ({
-                color: isActive ? "green" : "blue",
+              style={({ isActive }) => ({
+                color: isActive ? colors.grayColor : colors.whiteColor,
               })}
             >
               ABOUT
             </NavLink>
             <NavLink
-              className="p-10"
+              className="p-10 font-bold"
               to="/contact"
               exact="true"
-              style={(isActive) => ({
-                color: isActive ? "green" : "blue",
+              style={({ isActive }) => ({
+                color: isActive ? colors.grayColor : colors.whiteColor,
               })}
             >
               CONTACT US
             </NavLink>
           </ul>
         </div>
-        <div className="hidden md:flex pr-4">
-          <button className="mr-20 px-4 py-4">Register</button>
-          <button className="px-4 py-4">Login</button>
+        <div className="hidden md:flex pr-4 text-white">
+          <Link to={'/auth'} className="mr-20 px-4 py-4">Register</Link>
+          <Link to={'/auth/login'} className="px-4 py-4">Login</Link>
         </div>
         <div className="md:hidden mr-4" onClick={handleClick}>
           {!nav ? <MenuIcon className="w-11" /> : <XIcon className="w-11" />}
@@ -69,9 +71,9 @@ const Header = () => {
         <NavLink className="border-b-2 border-blue-300 w-full" to="/contact">
           CONTACT US
         </NavLink>
-        <div className="flex flex-col my-4">
-          <button className="  px-8 py-3 mb-4">Register</button>
-          <button className="px-8 py-3">Login</button>
+        <div className="flex flex-col my-4 text-main-x">
+          <Link to={'/auth'} className="  px-8 py-3 mb-4">Register</Link>
+          <Link to={'/auth/login'} className="px-8 py-3">Login</Link>
         </div>
       </ul>
     </div>

@@ -16,7 +16,7 @@ body[data-theme='light'] {
   --dark-color: 31, 41, 55;
   --color-text: 31, 41, 55;
   --color-background: 240, 245, 250;
-  --colors-heading: rgba(0, 0, 0, 0.6);
+  --color-heading: rgba(0, 0, 0, 0.6);
   /*transition*/
   --transition-out: all 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   --transition-in: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);

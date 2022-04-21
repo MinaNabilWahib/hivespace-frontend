@@ -17,9 +17,9 @@ const SectionOne = () => {
   }, []);
   return (
     <>
-      <div className="sectionone font-mono ">
-        <div className="left w-50% ">
-          <h1 className="text-zone w-50% m-40 text-7xl  ">
+      <div className="sectionone font-mono bg-main ">
+        <div className="left w-2/3 ">
+          <h1 className="text-zone w-50% my-40 mx-24 text-7xl  ">
             <span className={letterClass}>H</span>
             <span className={`${letterClass} _12`}>i,</span>
             <br />
@@ -41,9 +41,9 @@ const SectionOne = () => {
               idx={27}
             />
           </h1>
-          <h2 className=" text-7xl">Everything you can imagine is real.</h2>
+          <h2 className="text-zone w-50%  mx-24 text-7xl ">Everything you can imagine is real.</h2>
         </div>
-        <div className="right opacity-0 md:opacity-100">
+        <div className="right w-1/3 opacity-0 md:opacity-100">
           {/* <Canvas className="canvas">
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={1} />
