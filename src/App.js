@@ -30,6 +30,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import About from "./Pages/About/About";
 import ContactUs from "./Pages/ContactUs/ContactUs";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 function App() {
 
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ function App() {
   return (
     <div className="App bg-main h-screen">
       <Theme />
+
       {/* <Workspace /> */}
       <Routes>
         <Route path="user/verify/:id/:token" element={<NotAuthenticated><AuthVerify /></NotAuthenticated>} />
@@ -56,21 +58,16 @@ function App() {
         <Route path="socialVerify/:token/" element={<AuthCallback />} />
         <Route path="auth/failure" element={<NotAuthenticated><NotFound authFailure={true} /></NotAuthenticated>} />
 
-        <Header />
+        <Route element={<LandingPage />} >
           <Route path="/home" exact element={<Home />} />
-        </Routes>
-        <Routes>
           <Route path="/contact" exact element={<ContactUs />} />
-        </Routes>
-        <Routes>
           <Route path="/about" exact element={<About />} />
-        </Routes>
-        <Routes>
           <Route path="/" exact element={<Home />} />
-        </Routes>
-        <Footer />
+        </Route>
+      </Routes>
+
+    </div >
   );
-    </div>
 }
 
 export default App;
