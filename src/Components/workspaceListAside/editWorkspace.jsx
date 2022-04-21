@@ -1,7 +1,8 @@
 import { useFormik, FieldArray, FormikProvider } from "formik";
 import React from "react";
+import { useSelector } from "react-redux";
 
-export default function Addworkspace() {
+export default function Editworkspace() {
   const [showModal, setShowModal] = React.useState(false);
 
   const validate = (values) => {
@@ -24,6 +25,7 @@ export default function Addworkspace() {
 
   const formik = useFormik({
     initialValues: {
+      id: useSelector((state) => state.workspace.openWorkspace),
       title: "",
       description: "",
       members: [],
@@ -38,26 +40,12 @@ export default function Addworkspace() {
 
   return (
     <>
-      <button
-        className="flex items-center justify-center w-10 h-10 rounded-lg bg-transparent hover:bg-gray-400"
-        data-modal-toggle="authentication-modal"
+      <i
         onClick={() => setShowModal(true)}
-      >
-        <svg
-          className="w-6 h-6 fill-current"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-          ></path>
-        </svg>
-      </button>
+        style={{ color: "green", cursor: "pointer" }}
+        className="fa fa-pencil-square-o"
+        aria-hidden="true"
+      />
 
       {/* start modal */}
       {showModal ? (
@@ -68,7 +56,7 @@ export default function Addworkspace() {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">Add Workspace</h3>
+                  <h3 className="text-3xl font-semibold">Edit Workspace</h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}

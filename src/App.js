@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
-// import Chat from "./Components/ChatComponent/chatComponent";
+import "font-awesome/css/font-awesome.css";
 import Workspace from "./Pages/Workspace/workspacePage";
 
 function App() {
-	return (
-		<div className="App">
-			<Workspace />
-		</div>
-	);
+  return (
+    <div className="App">
+      <Workspace />
+    </div>
+  );
 }
 
 export default App;

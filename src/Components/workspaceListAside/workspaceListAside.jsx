@@ -17,7 +17,6 @@ const WorkspaceListAside = ({ workspaces, openWorkspace }) => {
           />
         );
       })}
-      {/* TODO:: ADD WORKSPACE */}
 
       <Addworkspace />
     </div>
