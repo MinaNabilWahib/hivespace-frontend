@@ -70,7 +70,7 @@ const Header = () => {
               <Link to={'/auth/login'} className="px-4 py-4">Login</Link>
             </div> :
             <div className="hidden md:flex pr-4 text-white">
-              <Link to={'/'} className="mr-20 px-4 py-4">WorkSpace</Link>
+              <Link to={'/workspace'} className="mr-20 px-4 py-4">WorkSpace</Link>
               <button onClick={logout} className="px-4 py-4">LogOut</button>
             </div>
         }
@@ -92,10 +92,16 @@ const Header = () => {
         <NavLink className="border-b-2 border-blue-300 w-full" to="/contact">
           CONTACT US
         </NavLink>
-        <div className="flex flex-col my-4 text-main-x">
-          <Link to={'/auth'} className="  px-8 py-3 mb-4">Register</Link>
-          <Link to={'/auth/login'} className="px-8 py-3">Login</Link>
-        </div>
+        {!loggedIn ?
+          <div className="flex flex-col my-4 text-main-x">
+            <Link to={'/auth'} className="  px-8 py-3 mb-4">Register</Link>
+            <Link to={'/auth/login'} className="px-8 py-3">Login</Link>
+          </div> :
+          <div className="flex flex-col my-4 text-main-x">
+            <Link to={'/workspace'} className="  px-8 py-3 mb-4">WorkSpace</Link>
+            <Link to={logout} className="px-8 py-3">LogOut</Link>
+          </div>
+        }
       </ul>
     </div>
   );
