@@ -3,7 +3,7 @@ import DateRule from "./dateRule";
 import Message from "./message";
 
 const Messages = ({ socket, channel }) => {
-	const [messages, setMessages] = useState({});
+	const [messages, setMessages] = useState([]);
 
 	const messageListener = (message) => {
 		console.log(message);
@@ -22,10 +22,7 @@ const Messages = ({ socket, channel }) => {
 	useEffect(() => {
 		setMessages({});
 		socket.on("message", messageListener);
-		socket.emit("getMessages", {
-			channelId: channel._id,
-			day: new Date().toLocaleDateString(),
-		});
+		socket.emit("getMessages", channel._id);
 
 		return () => {
 			socket.off("message", messageListener);
