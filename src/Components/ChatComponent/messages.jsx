@@ -35,6 +35,7 @@ const Messages = ({ socket, channel }) => {
 			className="flex flex-col-reverse flex-grow justify-end"
 		>
 			{Object.keys(messages).map((date) => {
+				console.log(messages);
 				return (
 					<div
 						key={date}

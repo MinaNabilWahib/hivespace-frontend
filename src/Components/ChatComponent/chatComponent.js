@@ -15,7 +15,8 @@ const Chat = () => {
 	const channel = workspace.channels.find(
 		(channel) => channel._id === openChannel
 	);
-	const user = useSelector((state) => state.user.user);
+	const user = useSelector((state) => state.authorization?.currentUser);
+	console.log(user);
 	const [socket, setSocket] = useState(null);
 
 	useEffect(() => {

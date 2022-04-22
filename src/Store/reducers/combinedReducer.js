@@ -8,4 +8,3 @@ export default combineReducers({
     authorization: authorizationReducer,
     loading: loadingReducer
 })
-  // workspace: workspaceReducer,

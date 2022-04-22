@@ -1,4 +1,5 @@
 const Message = ({ message }) => {
+  console.log(message);
   return (
     <div className="flex px-4 py-3">
       <img

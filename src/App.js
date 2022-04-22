@@ -61,6 +61,7 @@ function App() {
         <Route path="auth/socialVerify/:token/" element={<AuthCallback />} />
 
         <Route path="auth/failure" element={<NotAuthenticated><NotFound authFailure={true} /></NotAuthenticated>} />
+        <Route path="workspace" element={<Authenticated><Workspace /></Authenticated>} />
 
         <Route element={<LandingPage />} >
           <Route path="/home" exact element={<Home />} />
@@ -69,7 +70,6 @@ function App() {
           <Route path="/" exact element={<Home />} />
         </Route>
       </Routes>
-
     </div >
   );
 }
