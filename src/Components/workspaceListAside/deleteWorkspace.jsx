@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 export default function Deleteworkspace() {
   const [showModal, setShowModal] = React.useState(false);
   const workspace = useSelector((state) => state.workspace.openWorkspace);
@@ -12,11 +15,10 @@ export default function Deleteworkspace() {
 
   return (
     <>
-      <i
+      <FontAwesomeIcon
         onClick={() => setShowModal(true)}
-        style={{ color: "red" }}
-        className="fa fa-trash"
-        aria-hidden="true"
+        icon={faTrash}
+        color="red"
       />
       {showModal ? (
         <>

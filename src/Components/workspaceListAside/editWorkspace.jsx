@@ -3,6 +3,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { axiosInstance } from "./../../Network/axiosConfig";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faUserPen } from "@fortawesome/free-solid-svg-icons";
+
 export default function Editworkspace() {
   const [showModal, setShowModal] = React.useState(false);
 
@@ -51,6 +54,7 @@ export default function Editworkspace() {
         aria-hidden="true"
       />
 
+      <FontAwesomeIcon icon={faUserPen} onClick={() => setShowModal(true)} />
       {/* start modal */}
       {showModal ? (
         <>

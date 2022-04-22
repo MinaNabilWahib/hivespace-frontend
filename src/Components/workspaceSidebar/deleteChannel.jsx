@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 export default function DeleteChannel() {
   const [showModal, setShowModal] = React.useState(false);
   const channelId = useSelector((state) => state.workspace.openChannel);
@@ -12,12 +15,12 @@ export default function DeleteChannel() {
 
   return (
     <>
-      <i
+      <FontAwesomeIcon
         onClick={() => setShowModal(true)}
-        style={{ color: "red" }}
-        className="fa fa-trash"
-        aria-hidden="true"
+        icon={faTrash}
+        color="red"
       />
+
       {showModal ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
