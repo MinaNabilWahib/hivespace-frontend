@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { axiosInstance } from "./../../Network/axiosConfig";
 
 export default function DeleteChannel() {
   const [showModal, setShowModal] = React.useState(false);
@@ -10,6 +11,7 @@ export default function DeleteChannel() {
 
   const deleteIt = () => {
     setShowModal(false);
+    axiosInstance.delete(`/channel/${channelId}`);
     console.log(channelId);
   };
 

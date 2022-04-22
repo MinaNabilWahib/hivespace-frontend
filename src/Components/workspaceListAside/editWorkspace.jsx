@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { axiosInstance } from "./../../Network/axiosConfig";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faUserPen } from "@fortawesome/free-solid-svg-icons";
+import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 
 export default function Editworkspace() {
   const [showModal, setShowModal] = React.useState(false);
@@ -39,8 +39,6 @@ export default function Editworkspace() {
     onSubmit: (values) => {
       setShowModal(false);
       axiosInstance.put(`/createWorkspace`, values);
-      console.log(values);
-
       console.log(values);
     },
   });

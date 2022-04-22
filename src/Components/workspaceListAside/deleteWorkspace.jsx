@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { axiosInstance } from "./../../Network/axiosConfig";
 
 export default function Deleteworkspace() {
   const [showModal, setShowModal] = React.useState(false);
@@ -10,6 +11,7 @@ export default function Deleteworkspace() {
 
   const deleteIt = () => {
     setShowModal(false);
+    axiosInstance.delete(`/createWorkspace/${workspace}`);
     console.log(workspace);
   };
 

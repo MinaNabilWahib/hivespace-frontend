@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { axiosInstance } from "./../../Network/axiosConfig";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faUserPen } from "@fortawesome/free-solid-svg-icons";
+import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 
 export default function EditChannel() {
   const [showModal, setShowModal] = React.useState(false);
