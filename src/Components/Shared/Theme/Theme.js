@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Theme = () => {
+const Theme = ({ top }) => {
   const [theme, setTheme] = useState('light')
   const nextTheme = theme === 'light' ? 'dark' : 'light'
   useEffect(() => {
@@ -8,7 +8,7 @@ const Theme = () => {
   }, [theme])
   return (
 
-    <label className="swap swap-rotate  top-24 fixed right-7 z-10" title={`Change to ${nextTheme} mode`}>
+    <label className={`swap swap-rotate  ${top} fixed right-7 z-50`} title={`Change to ${nextTheme} mode`}>
 
       <input type="checkbox" className='hidden' onClick={() => setTheme(nextTheme)} />
 

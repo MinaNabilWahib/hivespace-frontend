@@ -12,6 +12,7 @@ import useSocial from '../../../Hooks/socialAuth';
 import SignButton from '../SocialRegister/SignButton';
 import { css } from '@emotion/css';
 import { Link } from 'react-router-dom';
+import LogoSvg from '../../Shared/LogoSvg/LogoSvg';
 const LoginForm = () => {
     const [disabled, startAuth] = useSocial();
 
@@ -30,6 +31,7 @@ const LoginForm = () => {
 
     return (
         <div className="w-full xl:w-3/4 max-w-3xl py-10 px-5 md:px-10">
+            <LogoSvg />
             <div className="text-center mb-10">
                 <h1 className="font-bold text-3xl text-primary">LOG IN</h1>
                 <p>Enter your Email & Password to LogIN</p>

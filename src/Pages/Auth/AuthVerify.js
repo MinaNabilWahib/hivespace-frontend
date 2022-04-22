@@ -5,6 +5,7 @@ import { setToken } from './../../Services/tokenHandling';
 import { useDispatch } from 'react-redux';
 import useSign from './../../Hooks/useSign';
 import { userVerify_get } from "../../Network/auth";
+import Theme from "../../Components/Shared/Theme/Theme";
 
 const AuthVerify = () => {
     const token = useParams().token;

@@ -1,11 +1,12 @@
 import "./Header.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState, useEffect } from "react";
 import cssVariables from './../../Services/cssVariables';
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAction, checkAuth } from './../../Store/actions/user';
 import { getToken } from "../../Services/tokenHandling";
+import logo from '../../Assets/images/hivespace.svg'
 const Header = () => {
   const [nav, setNav] = useState(false);
   const loggedIn = useSelector((state) => state.authorization.loggedIn);
@@ -14,9 +15,11 @@ const Header = () => {
   const handleClick = () => {
     setNav(!nav);
   };
-  useLayoutEffect(() => {
+
+  useEffect(() => {
     dispatch(checkAuth(getToken()))
   }, [dispatch])
+
   const colors = cssVariables.colors()
   const logout = () => {
     dispatch(logoutAction());
@@ -24,12 +27,15 @@ const Header = () => {
   }
 
   return (
-    <div className="w-[100%] h-[80px] z-10 bg-secondary drop-shadow-lg">
-      <div className="px-2 flex justify-between items-center w-full h-full bg-main-heading">
+    <div className="w-[100%] h-[80px] z-10 bg-slate-900 drop-shadow-lg">
+      <div className="px-2 flex justify-between items-center w-full h-full ">
         <div className="flex items-center">
-          <h1 className="text-3xl text-primary ml-3 mr-3 font-bold  sm:text-4xl">
+          {/* <h1 className="text-3xl text-primary ml-3 mr-3 font-bold  sm:text-4xl">
             HIVE SPACE.
-          </h1>
+          </h1> */}
+          <div className=" ml-3 mr-3 font-bold  ">
+            <img className='w-40 h-auto  mx-auto' src={logo} alt='Hive Space Logo' />
+          </div>
           <ul className="hidden  md:flex   text-primary-light ">
             <NavLink
               className="p-10 font-bold"

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Theme from "../../Components/Shared/Theme/Theme";
 import { setError } from "../../Services/tokenHandling";
 
 const NotFound = ({ authFailure }) => {
@@ -16,7 +17,8 @@ const NotFound = ({ authFailure }) => {
     }
     return (
         <div className="bg-main h-screen">
-            <div className="flex h-full items-center justify-center py-12">
+            <Theme top={'top-8'} />
+            <div className="flex h-full items-center justify-center py-12 bg-main">
                 <div className="bg-main-x border rounded-md flex items-center justify-center mx-4 md:w-2/3 ">
                     <div className="flex flex-col items-center py-16 ">
                         <img className="px-4 hidden md:block" src="https://i.ibb.co/9Vs73RF/undraw-page-not-found-su7k-1-3.png" alt="" />

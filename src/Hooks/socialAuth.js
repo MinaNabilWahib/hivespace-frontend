@@ -6,6 +6,7 @@ import { deleteToken, setToken } from './../Services/tokenHandling';
 import { getError } from './../Services/tokenHandling';
 import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { checkAuth } from '../Store/actions/user';
 
 
 const useSocial = () => {
@@ -16,6 +17,8 @@ const useSocial = () => {
     const load = useSelector((state) => state.loading.loading)
     const data = useSelector((state) => state.loading.data?.token)
     const error = useSelector((state) => state.loading.error)
+    const loggedIn = useSelector((state) => state.authorization.loggedIn)
+
     // let token = getToken()
     //navigate page after get token
     const navigate = useNavigate()
@@ -58,7 +61,14 @@ const useSocial = () => {
     window.addEventListener('storage', function listen(e) {
         if (e.key === 'token' && e.newValue) {
             dispatch(loaded({ token: e.newValue }))
-            navigate('/')
+            dispatch(checkAuth(e.newValue))
+            // const check = setInterval(() => {
+            if (loggedIn) {
+                navigate('/')
+                // clearInterval(check)
+            }
+            // }, 500);
+
         }
         else if (e.key === 'error' && e.newValue) {
             dispatch(errorHandling({ error: getError() }))
