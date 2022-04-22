@@ -6,14 +6,17 @@ const Messages = ({ socket, channel }) => {
 	const [messages, setMessages] = useState({});
 
 	const messageListener = (message) => {
-		let date = new Date(parseInt(message.timestamp)).toLocaleDateString();
-		setMessages((prevMessages) => ({
-			...prevMessages,
-			[date]:
-				prevMessages[date] === undefined
-					? [message]
-					: [message, ...prevMessages[date]],
-		}));
+		console.log(message);
+		if (message !== null) {
+			let date = new Date(parseInt(message.timestamp)).toLocaleDateString();
+			setMessages((prevMessages) => ({
+				...prevMessages,
+				[date]:
+					prevMessages[date] === undefined
+						? [message]
+						: [message, ...prevMessages[date]],
+			}));
+		}
 	};
 
 	useEffect(() => {
@@ -44,6 +47,7 @@ const Messages = ({ socket, channel }) => {
 							overflowX: "hidden",
 							display: "flex",
 							flexDirection: "column-reverse",
+							flexGrow: 1,
 						}}
 					>
 						{messages[date].map((message) => {
