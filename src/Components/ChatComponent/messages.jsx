@@ -3,10 +3,11 @@ import DateRule from "./dateRule";
 import Message from "./message";
 
 const Messages = ({ socket, channel }) => {
-	const [messages, setMessages] = useState([]);
+	const [messages, setMessages] = useState({});
 
 	const messageListener = (message) => {
 		console.log(message);
+		console.log(messages);
 		if (message !== null) {
 			let date = new Date(parseInt(message.timestamp)).toLocaleDateString();
 			setMessages((prevMessages) => ({
