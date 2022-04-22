@@ -1,9 +1,11 @@
 import { useFormik, FieldArray, FormikProvider } from "formik";
 import React from "react";
 import { axiosInstance } from "./../../Network/axiosConfig";
+import { useSelector } from "react-redux";
 
 export default function Addworkspace() {
   const [showModal, setShowModal] = React.useState(false);
+  const userId = useSelector((state) => state.authorization.currentUser._id);
 
   const validate = (values) => {
     const errors = {};
@@ -28,7 +30,7 @@ export default function Addworkspace() {
       title: "",
       description: "",
       members: [],
-      owner: "625c9977f375e6100773167a",
+      owner: userId,
     },
     validate,
     onSubmit: (values) => {

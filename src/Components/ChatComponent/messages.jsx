@@ -3,26 +3,26 @@ import DateRule from "./dateRule";
 import Message from "./message";
 
 const Messages = ({ socket, channel }) => {
-	const [messages, setMessages] = useState({});
+	const [messages, setMessages] = useState([]);
 
 	const messageListener = (message) => {
-		let date = new Date(parseInt(message.timestamp)).toLocaleDateString();
-		setMessages((prevMessages) => ({
-			...prevMessages,
-			[date]:
-				prevMessages[date] === undefined
-					? [message]
-					: [message, ...prevMessages[date]],
-		}));
+		console.log(message);
+		if (message !== null) {
+			let date = new Date(parseInt(message.timestamp)).toLocaleDateString();
+			setMessages((prevMessages) => ({
+				...prevMessages,
+				[date]:
+					prevMessages[date] === undefined
+						? [message]
+						: [message, ...prevMessages[date]],
+			}));
+		}
 	};
 
 	useEffect(() => {
 		setMessages({});
 		socket.on("message", messageListener);
-		socket.emit("getMessages", {
-			channelId: channel._id,
-			day: new Date().toLocaleDateString(),
-		});
+		socket.emit("getMessages", channel._id);
 
 		return () => {
 			socket.off("message", messageListener);
@@ -44,6 +44,7 @@ const Messages = ({ socket, channel }) => {
 							overflowX: "hidden",
 							display: "flex",
 							flexDirection: "column-reverse",
+							flexGrow: 1,
 						}}
 					>
 						{messages[date].map((message) => {
