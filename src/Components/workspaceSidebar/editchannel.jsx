@@ -3,6 +3,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { axiosInstance } from "./../../Network/axiosConfig";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPen } from "@fortawesome/free-solid-svg-icons";
+
 export default function EditChannel() {
   const [showModal, setShowModal] = React.useState(false);
 
@@ -42,12 +45,7 @@ export default function EditChannel() {
 
   return (
     <>
-      <i
-        onClick={() => setShowModal(true)}
-        style={{ color: "green", marginRight: "5px" }}
-        className="fa fa-pencil-square-o"
-        aria-hidden="true"
-      />
+      <FontAwesomeIcon icon={faUserPen} onClick={() => setShowModal(true)} />
       {/* start modal */}
       {showModal ? (
         <>

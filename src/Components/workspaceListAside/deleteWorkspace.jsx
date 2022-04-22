@@ -1,22 +1,26 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { axiosInstance } from "./../../Network/axiosConfig";
+
 export default function Deleteworkspace() {
   const [showModal, setShowModal] = React.useState(false);
   const workspace = useSelector((state) => state.workspace.openWorkspace);
 
   const deleteIt = () => {
     setShowModal(false);
+    axiosInstance.delete(`/createWorkspace/${workspace}`);
     console.log(workspace);
   };
 
   return (
     <>
-      <i
+      <FontAwesomeIcon
         onClick={() => setShowModal(true)}
-        style={{ color: "red" }}
-        className="fa fa-trash"
-        aria-hidden="true"
+        icon={faTrash}
+        color="red"
       />
       {showModal ? (
         <>
