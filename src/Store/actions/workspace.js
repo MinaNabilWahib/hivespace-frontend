@@ -3,6 +3,7 @@ import {
 	SET_OPEN_CHANNEL,
 	GET_WORKSPACES,
 	RESET_WORKSPACES,
+	ADD_WORKSPACE,
 } from "./types";
 import { axiosInstance } from "../../Network/axiosConfig";
 
@@ -23,7 +24,7 @@ export const setOpenChannel = (payload) => {
 export const getWorkspaces = (userId) => async (dispatch) => {
 	try {
 		const response = await axiosInstance.get(`/createWorkspace/${userId}`);
-		console.log(response.data);
+		// console.log(response.data);
 		dispatch({
 			type: GET_WORKSPACES,
 			payload: response.data.data,
@@ -38,4 +39,17 @@ export const resetWorkspaces = () => {
 	return {
 		type: RESET_WORKSPACES,
 	};
+};
+
+export const addWorkspace = (workspace) => async (dispatch) => {
+	try {
+		const response = await axiosInstance.post("/createWorkspace", workspace);
+		dispatch({
+			type: ADD_WORKSPACE,
+			payload: response.data.data,
+		});
+		return response.data;
+	} catch (error) {
+		return error.response.data;
+	}
 };
