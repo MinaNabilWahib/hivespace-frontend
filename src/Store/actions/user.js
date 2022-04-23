@@ -4,7 +4,6 @@ import { store } from '../store';
 import { me } from './../../Network/auth';
 import { AUTHENTICATED, NOT_AUTHENTICATED } from "./types";
 import { deleteToken } from './../../Services/tokenHandling';
-import { useSelector } from 'react-redux';
 
 export const checkAuth = (token) => async (dispatch) => {
     if (!token) {
@@ -14,8 +13,6 @@ export const checkAuth = (token) => async (dispatch) => {
         return null
     }
     try {
-        const user = useSelector((state) => state.authorization?.currentUser)
-        console.log(user);
         const api = await axiosInstance.get('/me', {
             headers: { Authorization: token },
         })

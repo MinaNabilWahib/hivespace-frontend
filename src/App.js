@@ -10,12 +10,12 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import AuthCallback from "./Pages/Auth/AuthCallback";
+// import AuthCallback from "./Pages/Auth/AuthCallback";
 import { useDispatch } from 'react-redux';
 import { checkAuth } from './Store/actions/user';
 // import NotFound from "./Pages/NotFound/NotFound";
 import LoaderSpinner from './Components/Shared/LoaderSpinner/LoaderSpinner';
-import AuthVerify from './Pages/Auth/AuthVerify';
+// import AuthVerify from './Pages/Auth/AuthVerify';
 // import LoginForm from "./Components/Authentication/LoginForm/LoginForm";
 // import ForgetPassword from "./Components/Authentication/ForgetPassword/ForgetPassword";
 // import ResetPassword from "./Components/Authentication/ForgetPassword/ResetPassword";
@@ -33,7 +33,9 @@ const LayoutSign = React.lazy(() => import("./Components/Authentication/layoutSi
 const SocialRegister = React.lazy(() => import("./Components/Authentication/SocialRegister/SocialRegister"));
 const RegisterForm = React.lazy(() => import("./Components/Authentication/RegisterForm/RegisterForm"));
 const Workspace = React.lazy(() => import("./Pages/Workspace/workspacePage"));
+const AuthCallback = React.lazy(() => import("./Pages/Auth/AuthCallback"));
 const NotFound = React.lazy(() => import("./Pages/NotFound/NotFound"));
+const AuthVerify = React.lazy(() => import('./Pages/Auth/AuthVerify'));
 const LoginForm = React.lazy(() => import("./Components/Authentication/LoginForm/LoginForm"));
 const ForgetPassword = React.lazy(() => import("./Components/Authentication/ForgetPassword/ForgetPassword"));
 const ResetPassword = React.lazy(() => import("./Components/Authentication/ForgetPassword/ResetPassword"));

@@ -10,9 +10,9 @@ const AuthCallback = () => {
     useEffect(() => {
         setToken(token)
         setTimeout(() => {
-            // window.close()
+            window.close()
         }, 2000);
-    }, [])
+    }, [token])
     return (
         <div className="w-full h-screen flex justify-center items-center">
             <LoaderSpinner />
