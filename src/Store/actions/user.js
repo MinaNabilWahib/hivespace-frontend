@@ -1,7 +1,6 @@
 import { axiosAuth, axiosInstance } from '../../Network/axiosConfig';
 import { setToken } from '../../Services/tokenHandling';
 import { store } from '../store';
-import { me } from './../../Network/auth';
 import { AUTHENTICATED, NOT_AUTHENTICATED } from "./types";
 import { deleteToken } from './../../Services/tokenHandling';
 
@@ -13,14 +12,23 @@ export const checkAuth = (token) => async (dispatch) => {
         return null
     }
     try {
-        const api = await axiosInstance.get('/me', {
-            headers: { Authorization: token },
-        })
-        dispatch({
-            type: AUTHENTICATED,
-            payload: api.data?.user
-        })
-        return api.data.user;
+        const user = store.getState().authorization?.currentUser
+        if (user?._id) {
+            dispatch({
+                type: AUTHENTICATED,
+                payload: user
+            })
+            return user;
+        } else {
+            const api = await axiosInstance.get('/me', {
+                headers: { Authorization: token },
+            })
+            dispatch({
+                type: AUTHENTICATED,
+                payload: api.data?.user
+            })
+            return api.data.user;
+        }
     } catch (error) {
         deleteToken()
         dispatch({
