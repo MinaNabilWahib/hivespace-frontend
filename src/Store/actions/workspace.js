@@ -44,9 +44,10 @@ export const resetWorkspaces = () => {
 export const addWorkspace = (workspace) => async (dispatch) => {
 	try {
 		const response = await axiosInstance.post("/createWorkspace", workspace);
+		// console.log(response.data);
 		dispatch({
 			type: ADD_WORKSPACE,
-			payload: response.data.data,
+			payload: response.data.final,
 		});
 		return response.data;
 	} catch (error) {

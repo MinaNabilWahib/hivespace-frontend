@@ -35,10 +35,11 @@ export default function Addworkspace() {
 			owner: userId,
 		},
 		validate,
-		onSubmit: (values) => {
+		onSubmit: (values, { resetForm }) => {
 			dispatch(addWorkspace(values));
 			setShowModal(false);
-			console.log(values);
+			// console.log("FORMIIK:", values);
+			resetForm();
 		},
 	});
 
