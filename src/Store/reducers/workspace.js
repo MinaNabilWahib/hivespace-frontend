@@ -17,6 +17,8 @@ export function workspaceReducer(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				workspaces: [...state.workspaces, action.payload],
+				openWorkspace: action.payload._id,
+				openChannel: action.payload.channels[0]._id,
 			};
 		case RESET_WORKSPACES:
 			return {
