@@ -5,6 +5,7 @@ import { axiosInstance } from "./../../Network/axiosConfig";
 
 export default function AddChannel() {
   const [showModal, setShowModal] = React.useState(false);
+  const userId = useSelector((state) => state.authorization.currentUser._id);
 
   const validate = (values) => {
     const errors = {};
@@ -30,7 +31,7 @@ export default function AddChannel() {
       title: "",
       description: "",
       members: [],
-      owner: "User._id",
+      owner: userId,
     },
     validate,
     onSubmit: (values) => {

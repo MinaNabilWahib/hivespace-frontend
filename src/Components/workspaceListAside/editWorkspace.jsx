@@ -8,6 +8,7 @@ import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 
 export default function Editworkspace() {
   const [showModal, setShowModal] = React.useState(false);
+  const userId = useSelector((state) => state.authorization.currentUser._id);
 
   const validate = (values) => {
     const errors = {};
@@ -33,12 +34,12 @@ export default function Editworkspace() {
       title: "",
       description: "",
       members: [],
-      owner: "User._id",
+      owner: userId,
     },
     validate,
     onSubmit: (values) => {
       setShowModal(false);
-      axiosInstance.put(`/createWorkspace`, values);
+      axiosInstance.put("/createWorkspace", values);
       console.log(values);
     },
   });

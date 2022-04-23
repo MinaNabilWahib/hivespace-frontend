@@ -8,6 +8,7 @@ import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 
 export default function EditChannel() {
   const [showModal, setShowModal] = React.useState(false);
+  const userId = useSelector((state) => state.authorization.currentUser._id);
 
   const validate = (values) => {
     const errors = {};
@@ -29,11 +30,12 @@ export default function EditChannel() {
 
   const formik = useFormik({
     initialValues: {
+      // workspaceId: useSelector((state) => state.workspace.openWorkspace),
       id: useSelector((state) => state.workspace.openChannel),
       title: "",
       description: "",
       members: [],
-      owner: "User._id",
+      owner: userId,
     },
     validate,
     onSubmit: (values) => {
