@@ -2,9 +2,9 @@ import auth from '../config/auth.config';
 import { useDispatch, useSelector } from 'react-redux';
 import { errorHandling, loaded, loading } from './../Store/actions/loading';
 import { getToken } from '../Services/tokenHandling';
-import { deleteToken, setToken } from './../Services/tokenHandling';
+import { deleteToken } from './../Services/tokenHandling';
 import { getError } from './../Services/tokenHandling';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { checkAuth } from '../Store/actions/user';
 
@@ -19,7 +19,6 @@ const useSocial = () => {
     const error = useSelector((state) => state.loading.error)
     const loggedIn = useSelector((state) => state.authorization.loggedIn)
 
-    // let token = getToken()
     //navigate page after get token
     const navigate = useNavigate()
 
@@ -29,11 +28,7 @@ const useSocial = () => {
         const check = setInterval(() => {
             count++;
             if (!popup || popup.closed === undefined || count === 10) {
-                // if (getToken())
-                //     dispatch(loaded({ token: getToken() }))
-                // if (getError())
-                //     dispatch(errorHandling({ error: getError() }))
-                // dispatch(loaded())
+
                 dispatch(loaded({ token: getToken() }))
                 clearInterval(check)
             }
@@ -62,12 +57,9 @@ const useSocial = () => {
         if (e.key === 'token' && e.newValue) {
             dispatch(loaded({ token: e.newValue }))
             dispatch(checkAuth(e.newValue))
-            // const check = setInterval(() => {
             if (loggedIn) {
                 navigate('/')
-                // clearInterval(check)
             }
-            // }, 500);
 
         }
         else if (e.key === 'error' && e.newValue) {
@@ -90,12 +82,9 @@ const useSocial = () => {
     }, [checkPopup, dispatch, load]);
 
 
-    // useEffect(() => {
-    //     if (data && !load)
-    //         navigate('/')
-    // }, [navigate, data, load])
 
-    return [load, startAuth, error];
+
+    return [load, startAuth, error, data];
 
 }
 

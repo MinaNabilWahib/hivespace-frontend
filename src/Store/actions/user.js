@@ -61,15 +61,14 @@ export const loginAction = (body) => async (dispatch) => {
             payload: api.data.user
         })
         setToken(api.data?.token)
-
         return api;
     } catch (error) {
         dispatch({
             type: NOT_AUTHENTICATED
         });
-        return error.response.data;
+        console.log(error.response);
+        return error.response?.data;
     }
-
 }
 
 export const logoutAction = () => {

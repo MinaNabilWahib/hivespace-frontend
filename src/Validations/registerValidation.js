@@ -52,21 +52,4 @@ export const validationRegister = yup.object({
         })
 })
 
-// const validateCountryPhone = (countryCode, phoneNumber) => {
-//     if (!countryCode) {
-//         console.log(countryCode);
-//         return false
-//     }
-//     console.log(countryCode);
-//     if (isNaN(phoneNumber)) { return false }
-//     console.log(phoneNumber);
-//     let phone = null;
-//     if (phoneNumber) {
-//         phone = parsePhoneNumber(phoneNumber)
-//     }
-
-//     console.log(phone.formatNational());
-//     // if (!phone.isValid()) { return false }
-//     return true
-// } // validate  phone number
 

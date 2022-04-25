@@ -43,10 +43,6 @@ const ResetPassword = React.lazy(() => import("./Components/Authentication/Forge
 
 function App() {
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(checkAuth(getToken()))
-  // }, [dispatch])
 
   return (
     <Suspense fallback={<LoaderSpinner />}>

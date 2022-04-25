@@ -1,4 +1,4 @@
-import { mdiAccount, mdiLockOpen, mdiLockOff, mdiEmail, mdiAccountArrowRight } from '@mdi/js'
+import { mdiLockOpen, mdiLockOff, mdiEmail, mdiAccountArrowRight } from '@mdi/js'
 import MuiCustomInput from '../MuiCustomInput/MuiCustomInput';
 import { useFormik, } from 'formik';
 import { validationRegister } from '../../../Validations/registerValidation';

@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from "react"
-import { useSelector, useDispatch } from 'react-redux';
-import { alertConfig } from "../Services/sweetAlert";
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -35,27 +34,7 @@ const useSign = (axiosRequest, formik) => {
             }
         }
 
-        // if (response?.message) {
-        //     await alertConfig(true, () => {
-        //         if (redirect)
-        //             navigate(redirect);
-        //     }).fire({
-        //         icon: 'success',
-        //         title: response.message,
-        //         position: 'top-start',
-        //     })
-        //     if (formik)
-        //         formik.handleReset()
-        // } else {
-        //     await alertConfig('').fire({
-        //         icon: 'warning',
-        //         title: response.Error,
-        //         position: 'center',
-        //     })
-        //     console.log(redirect);
-
-        // }
-    }, [axiosRequest, formik, navigate])
+    }, [axiosRequest, formik, navigate, load])
     return [startHandleSign, error, load, response]
 }
 export default useSign;

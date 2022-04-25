@@ -1,5 +1,4 @@
 
-import './LayoutSign.css'
 import LeftSign from './../LeftSign/LeftSign';
 import { Outlet } from 'react-router-dom';
 import { css } from '@emotion/css'

@@ -1,20 +1,6 @@
 import { axiosAuth, axiosInstance } from "./axiosConfig";
-import { setToken } from './../Services/tokenHandling';
-import { useNavigate } from 'react-router-dom';
 import { store } from './../Store/store';
-import { authenticated, loginAction } from "../Store/actions/user";
-import { not_authenticated } from './../Store/actions/user';
-
-// export const me = async (token) => {
-//     try {
-//         const api = await axiosInstance.get('/me', {
-//             headers: { Authorization: token },
-//         })
-//         return api.data.user;
-//     } catch (error) {
-//         return error
-//     }
-// }
+import { loginAction } from "../Store/actions/user";
 
 export const register_post = async (body) => {
     try {

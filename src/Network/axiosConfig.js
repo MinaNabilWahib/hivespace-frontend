@@ -36,6 +36,27 @@ axiosInstance.interceptors.request.use(
 	}
 );
 
+axiosInstance.interceptors.response.use(
+	function (response) {
+		//   SHOW LOADER
+		store.dispatch(loaded());
+		// console.log("INTERCEPTOR", config);
+		// Do something before request is sent
+
+		return response;
+	},
+	async function (error) {
+		// await alertConfig("", () => {
+		store.dispatch(errorHandling(error.response.data.Error));
+		// }).fire({
+		// 	icon: "warning",
+		// 	title: error.response.data.Error,
+		// 	position: "center",
+		// });
+		// return Promise.reject(error);
+	}
+);
+
 axiosAuth.interceptors.request.use(
 	function (config) {
 		store.dispatch(loading());

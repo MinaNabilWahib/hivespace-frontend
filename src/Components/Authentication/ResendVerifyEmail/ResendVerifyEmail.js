@@ -1,16 +1,10 @@
-import { mdiLockOpen, mdiLockOff, mdiEmail, mdiAccountArrowRight } from '@mdi/js'
+import { mdiEmail } from '@mdi/js'
 import MuiCustomInput from '../MuiCustomInput/MuiCustomInput';
 import { useFormik, } from 'formik';
 import useSign from '../../../Hooks/useSign';
 import { validationEmail } from '../../../Validations/loginValidation';
-import { resetPassword_post, VerifyEmail_post } from './../../../Network/auth';
-import SocialButton from '../SocialRegister/SocialButton';
-import google from '../../../Assets/Icons/Google.svg'
-import facebook from '../../../Assets/Icons/Facebook.svg'
-import or from '../../../Assets/images/or.svg'
-import useSocial from '../../../Hooks/socialAuth';
-import SignButton from '../SocialRegister/SignButton';
-import { css } from '@emotion/css';
+import { VerifyEmail_post } from './../../../Network/auth';
+
 import { Link } from 'react-router-dom';
 
 const ResendVerifyEmail = () => {
